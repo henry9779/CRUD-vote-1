@@ -28,17 +28,17 @@ class CandidatesController < ApplicationController
   def update
     find_candidate
 
-    if @candidate.update
+    if @candidate.update(candidate_params)
       redirect_to root_path, notice: '資料更新成功'
     else
       render :edit
     end
   end
 
-  def destory
+  def destroy
     find_candidate
 
-    @candidate.destory if @candidate
+    if @candidate.destroy
       redirect_to root_path, notice: '刪除成功'
     end
   end

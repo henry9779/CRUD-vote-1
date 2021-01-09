@@ -1,9 +1,17 @@
-<h1><%= @candidate.name %></h1>
+<% if @candidate %>
 
-<ul>
-  <li>年齡: <%= @candidate.age %></li>
-  <li>黨派: <%= @candidate.party %></li>
-  <li>政見: <%= @candidate.politics %></li>
-</ul>
+  <h1><%= @candidate.name %></h1>
+
+  <ul>
+    <li>年齡: <%= @candidate.age %></li>
+    <li>黨派: <%= @candidate.party %></li>
+    <li>政見: <%= @candidate.politics %></li>
+  </ul>
+
+<% else %>
+
+  <h1>無此資料</h1>
+
+<% end %>
 
 <%= link_to '回候選人列表', root_path %>
