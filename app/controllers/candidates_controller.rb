@@ -3,6 +3,10 @@ class CandidatesController < ApplicationController
     @candidates = Candidate.all
   end
 
+  def show
+    find_candidate
+  end
+
   def new
     @candidate = Candidate.new
   end
@@ -25,9 +29,17 @@ class CandidatesController < ApplicationController
     find_candidate
 
     if @candidate.update
-      redirect_to root_path, notice: '更新侯選人成功'
+      redirect_to root_path, notice: '資料更新成功'
     else
       render :edit
+    end
+  end
+
+  def destory
+    find_candidate
+
+    @candidate.destory if @candidate
+      redirect_to root_path, notice: '刪除成功'
     end
   end
 
