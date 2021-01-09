@@ -23,8 +23,8 @@
       <td><%= candidate.politics %></td>
       <td><%= candidate.votes %></td>
       <td>
-        <%= link_to '編輯候選人', edit_candidate_path(candidate) %>
-        <%= link_to '刪除候選人', candidate_path(candidate), method: 'delete', data: { confirm: '確定刪除嗎？' } %>
+        <%= link_to '編輯', edit_candidate_path(candidate) %>
+        <%= link_to '刪除', candidate_path(candidate), method: 'delete', data: { confirm: '確定刪除嗎？' } %>
       </td>
     </tr>
     <% end %>
