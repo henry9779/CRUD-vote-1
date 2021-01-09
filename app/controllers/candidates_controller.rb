@@ -8,7 +8,7 @@ class CandidatesController < ApplicationController
   end
 
   def create
-    find_candidate
+    @candidate = Candidate.new(candidate_params)
 
     if @candidate.save
       redirect_to root_path, notice: '新增候選人成功'
@@ -19,6 +19,10 @@ class CandidatesController < ApplicationController
 
 
   private
+  def candidate_params
+    params.require(:candidate).permit(:name, :age, :party, :politics)
+  end
+
   def find_candidate
     @candidate = Candidate.new(params[:id])
   end
