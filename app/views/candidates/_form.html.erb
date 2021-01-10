@@ -1,14 +1,14 @@
-<% if @candidate.errors.any? %>
+<% if candidate.errors.any? %>
 
 <ul>
-  <% @candidate.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
+  <% candidate.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
   <% end %>
 </ul>
 
 <% end %>
 
-<%= form_for @candidate do |f| %>
+<%= form_for candidate do |f| %>
   <div>
     <%= f.label :name, '姓名' %>
     <%= f.text_field :name %>

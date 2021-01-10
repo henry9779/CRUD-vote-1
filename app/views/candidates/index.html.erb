@@ -2,7 +2,7 @@
 
 <%= link_to '新增候選人', new_candidate_path %>
 
-<table>
+<table class='table'>
   <thead>
     <tr>
       <td>投票</td>
@@ -11,19 +11,20 @@
       <td>黨派</td>
       <td>政見</td>
       <td>得票數</td>
+      <td>其他設定</td>
     </tr>
   </thead>
   <tbody>
     <% @candidates.each do |candidate| %>
     <tr>
-      <td><%= link_to '投給這位', vote_candidate_path(candidate), method: 'post', data: { confirm: '確定投給這位嗎？'} %></td>
+      <td><%= link_to '投給這位', vote_candidate_path(candidate), method: 'post', data: { confirm: '確定投給這位嗎？'}, class: "btn btn-danger" %></td>
       <td><%= link_to candidate.name, candidate_path(candidate) %></td>
       <td><%= candidate.age %></td>
       <td><%= candidate.party %></td>
       <td><%= candidate.politics %></td>
       <td><%= candidate.vote_logs.size %></td>
       <td>
-        <%= link_to '編輯', edit_candidate_path(candidate) %>
+        <%= link_to '編輯', edit_candidate_path(candidate), class: "btn btn-primary" %>
         <%= link_to '刪除', candidate_path(candidate), method: 'delete', data: { confirm: '確定刪除嗎？' } %>
       </td>
     </tr>
